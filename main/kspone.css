@@ -1,0 +1,144 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 21, 2020, 12:57:27 PM
+    Author     : pekin
+*/
+
+.bodybg2{
+ -fx-background-image: url('KSPHP.jpg');
+ -fx-background-size: 100% 100%;
+}
+#bodybg{
+ -fx-background-image: url('KSPHP.jpg');
+ -fx-background-size: 100% 100%;
+}
+.gravityField{
+    -fx-text-inner-color: RED;
+}
+.chart-area-symbol {
+    -fx-background-color: #f9d900, white;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 4px;
+    -fx-padding: 3px;
+}
+/*
+0  #F08080
+1  #FFA07A
+2  #FFC0CB
+3  #DB7093
+4  #FF6347
+5  #FF8C00
+6  #FFDAB9
+7  #BDB76B
+8  #D8BFD8
+9  #9370DB
+10 #7B68EE
+11 #98FB98
+12 #2E8B57
+13 #66CDAA
+14 #008080
+15 #AFEEEE
+16 #4682B4
+17 #FFEBCD
+18 #D2B48C
+19 #DAA520
+20 #1E90FF
+21 #800000
+22 #C0C0C0
+23 #87CEEB
+24 #2F4F4F
+25 #FFE4E1
+
+*/
+.chart-area-symbol.series0 { -fx-background-color: #F08080, #F08080; }
+.chart-area-symbol.series1 { -fx-background-color: #FFA07A, #FFA07A; }
+.chart-area-symbol.series2 { -fx-background-color: #FFC0CB, #FFC0CB; }
+.chart-area-symbol.series3 { -fx-background-color: #DB7093, #DB7093; }
+.chart-area-symbol.series4 { -fx-background-color: #FF6347, #FF6347; }
+.chart-area-symbol.series5 { -fx-background-color: #FF8C00, #FF8C00; }
+.chart-area-symbol.series6 { -fx-background-color: #FFDAB9, #FFDAB9; }
+.chart-area-symbol.series7 { -fx-background-color: #BDB76B, #BDB76B; }
+.chart-area-symbol.series8 { -fx-background-color: #D8BFD8, #D8BFD8; }
+.chart-area-symbol.series9 { -fx-background-color: #9370DB, #9370DB; }
+.chart-area-symbol.series10 { -fx-background-color: #7B68EE, #7B68EE; }
+.chart-area-symbol.series11 { -fx-background-color: #98FB98, #98FB98; }
+.chart-area-symbol.series12 { -fx-background-color: #2E8B57, #2E8B57; }
+.chart-area-symbol.series13 { -fx-background-color: #66CDAA, #66CDAA; }
+.chart-area-symbol.series14 { -fx-background-color: #008080, #008080; }
+.chart-area-symbol.series15 { -fx-background-color: #AFEEEE, #AFEEEE; }
+.chart-area-symbol.series16 { -fx-background-color: #4682B4, #4682B4; }
+.chart-area-symbol.series17 { -fx-background-color: #FFEBCD, #FFEBCD; }
+.chart-area-symbol.series18 { -fx-background-color: #D2B48C, #D2B48C; }
+.chart-area-symbol.series19 { -fx-background-color: #DAA520, #DAA520; }
+.chart-area-symbol.series20 { -fx-background-color: #1E90FF, #1E90FF; }
+.chart-area-symbol.series21 { -fx-background-color: #800000, #800000; }
+.chart-area-symbol.series22 { -fx-background-color: #C0C0C0, #C0C0C0; }
+.chart-area-symbol.series23 { -fx-background-color: #87CEEB, #87CEEB; }
+.chart-area-symbol.series24 { -fx-background-color: #2F4F4F, #2F4F4F; }
+.chart-area-symbol.series25 { -fx-background-color: #FFE4E1, #FFE4E1; }
+
+.chart-series-area-line.series0 {-fx-stroke: #F08080;-fx-stroke-width: 1px;}
+.chart-series-area-line.series1 {-fx-stroke: #FFA07A;-fx-stroke-width: 1px;}
+.chart-series-area-line.series2 {-fx-stroke: #FFC0CB;-fx-stroke-width: 1px;}
+.chart-series-area-line.series3 {-fx-stroke: #DB7093;-fx-stroke-width: 1px;}
+.chart-series-area-line.series4 {-fx-stroke: #FF6347;-fx-stroke-width: 1px;}
+.chart-series-area-line.series5 {-fx-stroke: #FF8C00;-fx-stroke-width: 1px;}
+.chart-series-area-line.series6 {-fx-stroke: #FFDAB9;-fx-stroke-width: 1px;}
+.chart-series-area-line.series7 {-fx-stroke: #BDB76B;-fx-stroke-width: 1px;}
+.chart-series-area-line.series8 {-fx-stroke: #D8BFD8;-fx-stroke-width: 1px;}
+.chart-series-area-line.series9 {-fx-stroke: #9370DB;-fx-stroke-width: 1px;}
+.chart-series-area-line.series10 {-fx-stroke: #7B68EE;-fx-stroke-width: 1px;}
+.chart-series-area-line.series11 {-fx-stroke: #98FB98;-fx-stroke-width: 1px;}
+.chart-series-area-line.series12 {-fx-stroke: #2E8B57;-fx-stroke-width: 1px;}
+.chart-series-area-line.series13 {-fx-stroke: #66CDAA;-fx-stroke-width: 1px;}
+.chart-series-area-line.series14 {-fx-stroke: #008080;-fx-stroke-width: 1px;}
+.chart-series-area-line.series15 {-fx-stroke: #AFEEEE;-fx-stroke-width: 1px;}
+.chart-series-area-line.series16 {-fx-stroke: #4682B4;-fx-stroke-width: 1px;}
+.chart-series-area-line.series17 {-fx-stroke: #FFEBCD;-fx-stroke-width: 1px;}
+.chart-series-area-line.series18 {-fx-stroke: #D2B48C;-fx-stroke-width: 1px;}
+.chart-series-area-line.series19 {-fx-stroke: #DAA520;-fx-stroke-width: 1px;}
+.chart-series-area-line.series20 {-fx-stroke: #1E90FF;-fx-stroke-width: 1px;}
+.chart-series-area-line.series21 {-fx-stroke: #800000;-fx-stroke-width: 1px;}
+.chart-series-area-line.series22 {-fx-stroke: #C0C0C0;-fx-stroke-width: 1px;}
+.chart-series-area-line.series23 {-fx-stroke: #87CEEB;-fx-stroke-width: 1px;}
+.chart-series-area-line.series24 {-fx-stroke: #2F4F4F;-fx-stroke-width: 1px;}
+.chart-series-area-line.series25 {-fx-stroke: #FFE4E1;-fx-stroke-width: 1px;}
+
+.chart-series-area-fill.series0 {-fx-stroke: null;-fx-fill: #F08080;}
+.chart-series-area-fill.series1 {-fx-stroke: null;-fx-fill: #FFA07A;}
+.chart-series-area-fill.series2 {-fx-stroke: null;-fx-fill: #FFC0CB;}
+.chart-series-area-fill.series3 {-fx-stroke: null;-fx-fill: #DB7093;}
+.chart-series-area-fill.series4 {-fx-stroke: null;-fx-fill: #FF6347;}
+.chart-series-area-fill.series5 {-fx-stroke: null;-fx-fill: #FF8C00;}
+.chart-series-area-fill.series6 {-fx-stroke: null;-fx-fill: #FFDAB9;}
+.chart-series-area-fill.series7 {-fx-stroke: null;-fx-fill: #BDB76B;}
+.chart-series-area-fill.series8 {-fx-stroke: null;-fx-fill: #D8BFD8;}
+.chart-series-area-fill.series9 {-fx-stroke: null;-fx-fill: #9370DB;}
+.chart-series-area-fill.series10 {-fx-stroke: null;-fx-fill: #7B68EE;}
+.chart-series-area-fill.series11 {-fx-stroke: null;-fx-fill: #98FB98;}
+.chart-series-area-fill.series12 {-fx-stroke: null;-fx-fill: #2E8B57;}
+.chart-series-area-fill.series13 {-fx-stroke: null;-fx-fill: #66CDAA;}
+.chart-series-area-fill.series14 {-fx-stroke: null;-fx-fill: #008080;}
+.chart-series-area-fill.series15 {-fx-stroke: null;-fx-fill: #AFEEEE;}
+.chart-series-area-fill.series16 {-fx-stroke: null;-fx-fill: #4682B4;}
+.chart-series-area-fill.series17 {-fx-stroke: null;-fx-fill: #FFEBCD;}
+.chart-series-area-fill.series18 {-fx-stroke: null;-fx-fill: #D2B48C;}
+.chart-series-area-fill.series19 {-fx-stroke: null;-fx-fill: #DAA520;}
+.chart-series-area-fill.series20 {-fx-stroke: null;-fx-fill: #1E90FF;}
+.chart-series-area-fill.series21 {-fx-stroke: null;-fx-fill: #800000;}
+.chart-series-area-fill.series22 {-fx-stroke: null;-fx-fill: #C0C0C0;}
+.chart-series-area-fill.series23 {-fx-stroke: null;-fx-fill: #87CEEB;}
+.chart-series-area-fill.series24 {-fx-stroke: null;-fx-fill: #2F4F4F;}
+.chart-series-area-fill.series25 {-fx-stroke: null;-fx-fill: #FFE4E1;}
+
+.area-legend-symbol {-fx-padding: 6px;
+    -fx-background-radius: 6px; 
+    -fx-background-insets: 0, 3;
+}
+.bg-engine-pane {
+    -fx-background-color:  white;
+}

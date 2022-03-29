@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="761.0" maxWidth="1048.0" minHeight="398.0" minWidth="545.0" prefHeight="739.0" prefWidth="1044.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stageplanner.StagePlannerController">
+    <stylesheets>
+        <URL value="@stageplanner.css" />
+    </stylesheets>
+   <children>
+      <ImageView disable="true" fitHeight="739.0" fitWidth="1044.0" visible="false">
+         <image>
+            <Image url="@../../../../../../521Capstone/KSPEO/src/main/KSPHP.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dvMap" fitHeight="722.0" fitWidth="594.0" layoutX="443.0" layoutY="11.0">
+         <image>
+            <Image url="@../../resources/dvmap.png" />
+         </image>
+      </ImageView>
+      <MenuButton fx:id="startPlanet" layoutX="8.0" layoutY="194.0" maxHeight="25.0" maxWidth="81.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Kerbin">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Moho" />
+            <Menu mnemonicParsing="false" text="Eve">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Eve" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Gilly" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Kerbin">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Kerbin" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Mun" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Minmus" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Duna">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Duna" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Ike" />
+               </items>
+            </Menu>
+            <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Dres" />
+            <Menu mnemonicParsing="false" text="Jool">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Jool" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Laythe" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Vall" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Tylo" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Bop" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Pol" />
+               </items>
+            </Menu>
+            <MenuItem mnemonicParsing="false" onAction="#handleStartPlanet" text="Eeloo" />
+         </items>
+      </MenuButton>
+      <MenuButton fx:id="endPlanet" layoutX="181.0" layoutY="194.0" maxHeight="25.0" maxWidth="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Mun" wrapText="true">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Moho" />
+            <Menu mnemonicParsing="false" text="Eve">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Eve" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Gilly" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Kerbin">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Kerbin" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Mun" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Minmus" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Duna">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Duna" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Ike" />
+               </items>
+            </Menu>
+            <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Dres" />
+            <Menu mnemonicParsing="false" text="Jool">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Jool" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Laythe" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Vall" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Tylo" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Bop" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Pol" />
+               </items>
+            </Menu>
+            <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Eeloo" />
+            <MenuItem mnemonicParsing="false" onAction="#handleEndPlanet" text="Keostationary" />
+         </items>
+      </MenuButton>
+      <TextArea fx:id="dvTextArea" editable="false" layoutX="7.0" layoutY="267.0" prefHeight="264.0" prefWidth="428.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+      <RadioButton fx:id="startLanded" layoutX="94.0" layoutY="196.0" mnemonicParsing="false" selected="true" text="Landed" textFill="WHITE">
+         <toggleGroup>
+            <ToggleGroup fx:id="start" />
+         </toggleGroup>
+         <font>
+            <Font size="14.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="startOrbit" layoutX="94.0" layoutY="217.0" mnemonicParsing="false" text="Orbit" textFill="WHITE" toggleGroup="$start">
+         <font>
+            <Font size="14.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="endLanded" layoutX="283.0" layoutY="196.0" mnemonicParsing="false" selected="true" text="Landed" textFill="WHITE">
+         <toggleGroup>
+            <ToggleGroup fx:id="end" />
+         </toggleGroup>
+         <font>
+            <Font size="14.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="endOrbit" layoutX="283.0" layoutY="218.0" mnemonicParsing="false" text="Orbit" textFill="WHITE" toggleGroup="$end">
+         <font>
+            <Font size="14.0" />
+         </font></RadioButton>
+      <CheckBox fx:id="aerobrake" layoutX="282.0" layoutY="241.0" mnemonicParsing="false" text="Aerobrake" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></CheckBox>
+      <Button fx:id="calculate" layoutX="367.0" layoutY="196.0" mnemonicParsing="false" onAction="#handleCalculate" text="Calculate" />
+      <Spinner fx:id="errorProtection" editable="true" layoutX="215.0" layoutY="238.0" prefHeight="25.0" prefWidth="57.0" />
+      <Text fill="WHITE" layoutX="30.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="216.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="66.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Protection %">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="21.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stage Planner" textAlignment="CENTER" wrappingWidth="373.42236328125">
+         <font>
+            <Font name="Lucida Handwriting Italic" size="41.0" />
+         </font>
+      </Text>
+      <Button fx:id="reset" layoutX="385.0" layoutY="536.0" mnemonicParsing="false" onAction="#handleReset" text="Reset" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="761.0" maxWidth="1048.0" minHeight="398.0" minWidth="545.0" prefHeight="739.0" prefWidth="1044.0" stylesheets="@KSPOne.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.KSPOneController">
+    <children>
+        <Label fx:id="label" layoutX="10.0" layoutY="-6.0" minHeight="16" minWidth="69" text="Engine Optimizer" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="626.0" AnchorPane.topAnchor="-6.0">
+         <font>
+            <Font name="Lucida Handwriting Italic" size="41.0" />
+         </font></Label>
+      <Label fx:id="minDVLabel" layoutX="114.0" layoutY="127.0" text="Min. DV" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="minTWRLabel" layoutX="114.0" layoutY="154.0" text="Min. TWR" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="maxTWRLabel" layoutX="303.0" layoutY="154.0" text="Max TWR" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="maxDVLabel" layoutX="304.0" layoutY="127.0" text="Max DV" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="radioSpark" layoutX="598.0" layoutY="36.0" mnemonicParsing="false" selected="true" text="&quot;487S&quot;, Spark" textFill="WHITE" AnchorPane.rightAnchor="346.0" AnchorPane.topAnchor="36.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioThud" layoutX="598.0" layoutY="57.0" mnemonicParsing="false" selected="true" text="&quot;Mk-55&quot;, Thud" textFill="WHITE" AnchorPane.rightAnchor="339.0" AnchorPane.topAnchor="57.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <CheckBox fx:id="selectAllSmall" layoutX="597.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleSmallEngines" selected="true" text="Select All Small" textFill="WHITE" AnchorPane.rightAnchor="337.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="selectAllMedium" layoutX="735.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleMediumEngines" selected="true" text="Select All Medium" textFill="WHITE" AnchorPane.rightAnchor="182.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="selectAllLarge" layoutX="887.0" layoutY="15.0" mnemonicParsing="false" onAction="#toggleLargeEngines" selected="true" text="Select All Large" textFill="WHITE" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="15.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </CheckBox>
+      <TextField fx:id="payloadField" layoutX="224.0" layoutY="71.0" prefHeight="25.0" prefWidth="256.0" promptText="payload mass (t)" />
+      <TextField fx:id="gravityField" layoutX="194.0" layoutY="99.0" prefHeight="25.0" prefWidth="178.0" promptText="gravity or choose planet -&gt;" />
+      <MenuButton fx:id="planetsGravityMenu" layoutX="409.0" layoutY="97.0" mnemonicParsing="false" text="Planets">
+        <items>
+          
+          <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Moho" />
+            <Menu mnemonicParsing="false" text="Eve">
+              <items>    
+                <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Eve" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Gilly" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Kerbin">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Kerbin" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Mun" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Minmus" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Duna">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Duna" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Ike" />
+              </items>
+            </Menu>
+          <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Dres" />
+            <Menu mnemonicParsing="false" text="Jool">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Jool" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Laythe" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Vall" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Tylo" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Bop" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Pol" />
+              </items>
+            </Menu>
+          <MenuItem mnemonicParsing="false" onAction="#handleSetGravityField" text="Eeloo" />
+        </items>
+      </MenuButton>
+      <TextField fx:id="minDVField" layoutX="193.0" layoutY="128.0" prefHeight="25.0" prefWidth="96.0" promptText="min DV" />
+      <TextField fx:id="maxDVField" layoutX="382.0" layoutY="126.0" prefHeight="25.0" prefWidth="96.0" promptText="max DV" />
+      <TextField fx:id="minTWRField" layoutX="193.0" layoutY="155.0" prefHeight="25.0" prefWidth="96.0" promptText="min TWR" />
+      <TextField fx:id="maxTWRField" layoutX="384.0" layoutY="155.0" prefHeight="25.0" prefWidth="96.0" promptText="max TWR" />
+      <TextField fx:id="atmosphereField" layoutX="215.0" layoutY="182.0" prefHeight="25.0" prefWidth="187.0" promptText="atmosphere or choose planet -&gt;" />
+      <MenuButton fx:id="planetsPressureMenu" layoutX="410.0" layoutY="182.0" mnemonicParsing="false" text="Planets">
+         <items>
+             <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Vacuum" />
+            <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Moho" />
+            <Menu mnemonicParsing="false" text="Eve">
+              <items>    
+                <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Eve" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Gilly" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Kerbin">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Kerbin" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Minmus" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Mun" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Duna">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Duna" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Ike" />
+              </items>
+            </Menu>
+          <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Dres" />
+            <Menu mnemonicParsing="false" text="Jool">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Jool" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Laythe" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Vall" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Tylo" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Bop" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Pol" />
+              </items>
+            </Menu>
+          <MenuItem mnemonicParsing="false" onAction="#handleSetAtmosphereField" text="Eeloo" />
+         </items>
+      </MenuButton>
+      <TextField fx:id="numEnginesField" layoutX="268.0" layoutY="211.0" prefHeight="25.0" prefWidth="212.0" promptText="Max # of engines or &quot;0&quot; for unlimited" />
+        <Button fx:id="buttonCalculate" layoutX="849.0" layoutY="704.0" onAction="#handleCalculateAction" prefHeight="27.0" prefWidth="76.0" text="Calculate" />
+      <Button fx:id="loadExampleButton" layoutX="944.0" layoutY="705.0" mnemonicParsing="false" onAction="#handleLoadExampleAction" text="Load Example" />
+      <Label fx:id="gravityLabel" layoutX="115.0" layoutY="98.0" text="Gravity" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="atmosphereLabel" layoutX="109.0" layoutY="175.0" prefHeight="36.0" prefWidth="106.0" text=" Atmosphere" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="numEnginesLabel" layoutX="114.0" layoutY="204.0" prefHeight="36.0" prefWidth="157.0" text="Max # of Engines" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="payloadLabel" layoutX="114.0" layoutY="71.0" text="Payload Mass" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="radioPoodle" layoutX="887.0" layoutY="36.0" mnemonicParsing="false" selected="true" text="&quot;RE-L10&quot;, Poodle " textFill="WHITE" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="36.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioReliant" layoutX="735.0" layoutY="36.0" mnemonicParsing="false" selected="true" text="&quot;LV-T30&quot;, Reliant" textFill="WHITE" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="36.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <CheckBox fx:id="selectAllSolidBooster" disable="true" layoutX="735.0" layoutY="221.0" mnemonicParsing="false" onAction="#toggleSolidFuelEngines" opacity="0.0" text="Select All Solid Booster" textFill="WHITE" AnchorPane.rightAnchor="154.0" AnchorPane.topAnchor="221.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="selectAllJet" disable="true" layoutX="598.0" layoutY="221.0" mnemonicParsing="false" onAction="#toggleJetEngines" opacity="0.0" text="Select All Jet" textFill="WHITE" AnchorPane.rightAnchor="351.0" AnchorPane.topAnchor="221.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </CheckBox>
+      <AreaChart fx:id="engineChart" animated="false" layoutX="21.0" layoutY="253.0" onMouseClicked="#handleSetStagePlanner" prefHeight="480.0" prefWidth="697.0" styleClass="chart-area-symbol" stylesheets="@KSPOne.css" title="Engine Chart">
+        <xAxis>
+          <NumberAxis label="Delta-V" side="BOTTOM" tickLabelFill="#e8e6e6" fx:id="xAxis" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yAxis" label="TWR" side="LEFT" tickLabelFill="#c9c9c9" upperBound="10.0" />
+        </yAxis>
+      </AreaChart>
+      <RadioButton fx:id="radioTerrier" layoutX="735.0" layoutY="57.0" mnemonicParsing="false" selected="true" text="&quot;LV-909&quot;, Terrier " textFill="WHITE" AnchorPane.rightAnchor="188.0" AnchorPane.topAnchor="57.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioSwivel" layoutX="735.0" layoutY="78.0" mnemonicParsing="false" selected="true" text="&quot;LV-T45&quot;, Swivel " textFill="WHITE" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="78.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioVector" layoutX="736.0" layoutY="100.0" mnemonicParsing="false" selected="true" text="&quot;KS-25&quot;, Vector " textFill="WHITE" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="100.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioNerv" layoutX="735.0" layoutY="121.0" mnemonicParsing="false" selected="true" text="&quot;LV-N&quot;, Nerv" textFill="WHITE" AnchorPane.rightAnchor="213.0" AnchorPane.topAnchor="121.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioSkipper" layoutX="887.0" layoutY="57.0" mnemonicParsing="false" selected="true" text="&quot;RE-I5&quot;, Skipper " textFill="WHITE" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="57.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioMainsail" layoutX="887.0" layoutY="78.0" mnemonicParsing="false" selected="true" text="&quot;RE-M3&quot;, Mainsail " textFill="WHITE" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="78.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioTwinboar" layoutX="887.0" layoutY="100.0" mnemonicParsing="false" selected="true" text="&quot;KR-1&quot;, Twin Boar" textFill="WHITE" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="100.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioMammoth" layoutX="887.0" layoutY="121.0" mnemonicParsing="false" selected="true" text="&quot;KS-25&quot;, Mammoth " textFill="WHITE" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="121.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioRhino" layoutX="887.0" layoutY="142.0" mnemonicParsing="false" selected="true" text="&quot;KR-2L&quot;, Rhino " textFill="WHITE" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="142.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioDawn" layoutX="598.0" layoutY="78.0" mnemonicParsing="false" selected="true" text="&quot;IX-6315&quot;, Dawn" textFill="WHITE" AnchorPane.rightAnchor="329.0" AnchorPane.topAnchor="78.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <CheckBox fx:id="dawnSolarPanelsCheck" layoutX="600.0" layoutY="100.0" mnemonicParsing="false" onAction="#toggleDawn" selected="true" text="Include Solar Panels?" textFill="WHITE" AnchorPane.rightAnchor="322.0" AnchorPane.topAnchor="100.0">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </CheckBox>
+      <RadioButton fx:id="radioDart" disable="true" layoutX="599.0" layoutY="243.0" mnemonicParsing="false" opacity="0.0" text="&quot;T-1&quot;, Dart " textFill="WHITE" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="243.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioJuno" disable="true" layoutX="600.0" layoutY="264.0" mnemonicParsing="false" opacity="0.0" text="&quot;J-20&quot;, Juno " textFill="WHITE" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="264.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioRapier" disable="true" layoutX="600.0" layoutY="286.0" mnemonicParsing="false" opacity="0.0" text="&quot;CR-7&quot;, R.A.P.I.E.R. " textFill="WHITE" AnchorPane.rightAnchor="314.0" AnchorPane.topAnchor="286.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioGoliath" disable="true" layoutX="600.0" layoutY="307.0" mnemonicParsing="false" opacity="0.0" text="&quot;J-90&quot;, Goliath" textFill="WHITE" AnchorPane.rightAnchor="339.0" AnchorPane.topAnchor="307.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioWheesley" disable="true" layoutX="600.0" layoutY="328.0" mnemonicParsing="false" opacity="0.0" text="&quot;J-33&quot;, Wheesley" textFill="WHITE" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="328.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioPanther" disable="true" layoutX="600.0" layoutY="349.0" mnemonicParsing="false" opacity="0.0" text="&quot;J-404&quot;, Panther  " textFill="WHITE" AnchorPane.rightAnchor="322.0" AnchorPane.topAnchor="349.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioShrimp" disable="true" layoutX="736.0" layoutY="243.0" mnemonicParsing="false" opacity="0.0" text="&quot;F350&quot;, Shrimp  " textFill="WHITE" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="243.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioMite" disable="true" layoutX="737.0" layoutY="264.0" mnemonicParsing="false" opacity="0.0" text="&quot;FM1&quot;, Mite " textFill="WHITE" AnchorPane.rightAnchor="212.0" AnchorPane.topAnchor="264.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioHammer" disable="true" layoutX="739.0" layoutY="307.0" mnemonicParsing="false" opacity="0.0" text="&quot;RT-10&quot;, Hammer" textFill="WHITE" AnchorPane.rightAnchor="182.0" AnchorPane.topAnchor="307.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioThumper" disable="true" layoutX="739.0" layoutY="329.0" mnemonicParsing="false" opacity="0.0" text="&quot;BACC&quot;, Thumper" textFill="WHITE" AnchorPane.rightAnchor="181.0" AnchorPane.topAnchor="329.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioKickback" disable="true" layoutX="739.0" layoutY="350.0" mnemonicParsing="false" opacity="0.0" text="&quot;S1-SRB&quot;, Kickback  " textFill="WHITE" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="350.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioFlea" disable="true" layoutX="738.0" layoutY="286.0" mnemonicParsing="false" opacity="0.0" text="&quot;RT-5&quot;, Flea" textFill="WHITE" AnchorPane.rightAnchor="216.0" AnchorPane.topAnchor="286.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioClydesdale" disable="true" layoutX="739.0" layoutY="370.0" mnemonicParsing="false" opacity="0.0" text="&quot;S2-33&quot;, Clydesdale " textFill="WHITE" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="370.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioThoroughbred" disable="true" layoutX="739.0" layoutY="391.0" mnemonicParsing="false" opacity="0.0" text="&quot;S2-17&quot;, Thoroughbred" textFill="WHITE" AnchorPane.rightAnchor="149.0" AnchorPane.topAnchor="391.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioWhiplash" layoutX="600.0" layoutY="370.0" mnemonicParsing="false" opacity="0.0" text="&quot;J-X4&quot;, Whiplash" textFill="WHITE" AnchorPane.rightAnchor="326.0" AnchorPane.topAnchor="370.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <Text fx:id="errorTextField" fill="#ff1515" layoutX="731.0000171661377" layoutY="698.1865234375" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="306.00000858306885" AnchorPane.rightAnchor="6.999974250793457" AnchorPane.topAnchor="682.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Pane layoutX="729.0" layoutY="251.0" prefHeight="430.0" prefWidth="306.0" styleClass="bg-engine-pane" stylesheets="@KSPOne.css">
+         <children>
+            <Text fx:id="outputTWR" layoutX="7.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TWR: " wrappingWidth="138.0000126361847">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputDV" layoutX="144.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delta-V: " wrappingWidth="156.99999451637268">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Label layoutX="74.0" layoutY="-1.0" text="Engine Details">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Text fx:id="outputBest" layoutX="6.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best:" wrappingWidth="293.0000074207783">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputPayloadFraction" layoutX="6.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payload Fraction:" wrappingWidth="293.0000074207783">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputBurnout" layoutX="6.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Burnout Time:" wrappingWidth="293.0000074207783">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="71.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mass Breakdown (t)" wrappingWidth="130.9999980032444">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputNumEngines" layoutX="132.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Engines:" wrappingWidth="168.00000861287117">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputTank" layoutX="135.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tank:" wrappingWidth="168.00001007318497">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputPropellant" layoutX="6.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Propellant:" wrappingWidth="122.999999076128">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputPayloadt" layoutX="6.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payload:" wrappingWidth="128.0000139772892">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputSecondBest" layoutX="7.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Second Best:" wrappingWidth="293.0000074207783">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputSecondPayloadFraction" layoutX="7.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payload Fraction:" wrappingWidth="293.0000074207783">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputSecondBurnout" layoutX="7.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Burnout Time:" wrappingWidth="267.0000025629997">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="82.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mass Breakdown (t)" wrappingWidth="130.9999980032444">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputSecondEngines" layoutX="136.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Engines:" wrappingWidth="156.99999451637268">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputSecondTank" layoutX="135.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tank:" wrappingWidth="168.00000861287117">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputSecondPropellant" layoutX="6.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Propellant:" wrappingWidth="138.9999969303608">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="outputSecondPayload" layoutX="6.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payload:" wrappingWidth="130.9999980032444">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Label layoutX="98.0" layoutY="314.0" text="Stage Planner">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Text fx:id="txtDVStagePlanner" layoutX="174.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delta-V:" wrappingWidth="139.00000888109207">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtMassStagePlanner" layoutX="175.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mass:" wrappingWidth="100.99999979138374">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtEngineStagePlanner" layoutX="7.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Engine: " wrappingWidth="168.00002336502075">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtTWRPlanner" layoutX="7.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TWR: " wrappingWidth="138.0000126361847">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="8.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Propellant:" wrappingWidth="76.99999809265137">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="8.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tank:" wrappingWidth="39.00001007318497">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Separator layoutX="81.0" layoutY="404.0" prefHeight="9.0" prefWidth="77.0" />
+            <Text fx:id="txtTankPropellantMass" layoutX="84.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="75.99999064207077">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtTankPlanner" layoutX="82.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="76.99999809265137">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtPropellantPlanner" layoutX="88.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="70.00000038743019">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="16.0" layoutX="842.0" layoutY="123.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="16.0" layoutX="1015.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="102.0" />
+      <Label layoutX="1013.0" layoutY="101.0" prefHeight="17.0" prefWidth="14.0" text="  ?" textFill="#2c22e1" wrapText="true" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="101.0">
+         <tooltip>
+            <Tooltip prefWidth="100.0" text="Fuel and tank weight (36t) subtracted from total engine mass (42.5t) and reaplied during calculations. When building subtract weight (32t when engine is full) from required propellant " wrapText="true" />
+         </tooltip>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="16.0" layoutX="716.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="14.0" AnchorPane.rightAnchor="315.0" AnchorPane.topAnchor="80.0" />
+      <Label layoutX="714.0" layoutY="79.0" prefHeight="17.0" prefWidth="14.0" text="  ?" textFill="#2c22e1" AnchorPane.rightAnchor="317.0" AnchorPane.topAnchor="79.0">
+         <tooltip>
+            <Tooltip prefWidth="100.0" text="When checkbox is selected it adds roughly 150 kgs per engine to compensate for solar panels, batteries etc." wrapText="true" />
+         </tooltip>
+      </Label>
+      <Label layoutX="840.0" layoutY="122.0" prefHeight="16.0" prefWidth="21.0" text="  ?" textAlignment="CENTER" textFill="#2c22e1">
+         <tooltip>
+            <Tooltip prefWidth="100.0" text="Assumed paired with liquid fuel only tanks" wrapText="true" />
+         </tooltip>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="25.0" layoutX="82.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" width="21.0" />
+      <Label layoutX="77.0" layoutY="67.0" onMouseClicked="#handleOpenInstructions" prefHeight="36.0" prefWidth="21.0" text="  ?" textFill="#2c22e1">
+         <tooltip>
+            <Tooltip prefWidth="500.0" text="Fill out all the fields and select desired engines you would like to see checked. Then click Calculate button, hover over the chart to get exact values displayed. (You may also click load example to see how it works)" wrapText="true" />
+         </tooltip>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Text fill="WHITE" layoutX="434.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KSP - 1.10" />
+      <Pane fx:id="paneInstruction" disable="true" layoutX="105.0" layoutY="72.0" prefHeight="264.0" prefWidth="538.0" styleClass="bg-engine-pane" visible="false">
+         <children>
+            <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Kerbal Space Program Engine Optimizer">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First things first, fill out the form (mass, TWR, Delta-v etc.)">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="15.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Next select your engine(s) fromt the radio buttons and/or Custom engines ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="15.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click calculate and the results will get displayed to the graph">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="16.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hover over the graph at desired TWR and Delta-v value and the best engine will be displayed in the Engine Details panel" wrappingWidth="444.556640625">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="17.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Once you found your ideal stats, click the graph at that location and the values will be saved in the stage planner area" wrappingWidth="407.9999907016754">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="17.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Then its off to the VAB to get your build started!!">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="17.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click Load Example to pre-populate the form">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+    </children>
+</AnchorPane>

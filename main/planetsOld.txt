@@ -1,0 +1,18 @@
+1.10
+Moho 2.7 0
+Eve 16.7 5
+Gilly .049 0
+Kerbin 9.81 1
+Mun 1.63 0
+Minmus .491 0
+Duna 2.94 .066667
+Ike 1.1 0
+Dres 1.13 0
+Jool 7.85 15
+Laythe 7.85 .6
+Vall 2.31 0
+Tylo 7.85 0
+Bop .589 0
+Pol .373 0
+Eeloo 1.69 0
+Vacuum 0 0
